@@ -10,8 +10,10 @@ class DockingStation
         @bikes = [] 
     end
 
-    def release_bike
-        empty? ? (raise "No bikes") : (@bikes.pop)
+    def release_bike(bike = [])
+        (raise "No bikes") if empty?
+        (raise "Broken Bike" if bike.broken)
+        (@bikes.delete(bike))
     end
 
     def dock(bike)

@@ -13,8 +13,16 @@ describe DockingStation do
 
     it 'returns docked bikes' do
         bike = Bike.new
+        bike.report
         subject.dock(bike)
         expect(subject.bikes).to eq [bike]
+    end
+
+    it 'doesnt release a broken bike' do
+        bike = Bike.new
+        bike.report
+        subject.dock(bike)
+        expect{ subject.release_bike(bike) }.to raise_exception("Broken Bike")
     end
     
     it 'raises error when empty' do
