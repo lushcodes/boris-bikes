@@ -13,7 +13,6 @@ describe DockingStation do
 
     it 'returns docked bikes' do
         bike = Bike.new
-        bike.report
         subject.dock(bike)
         expect(subject.bikes).to eq [bike]
     end
