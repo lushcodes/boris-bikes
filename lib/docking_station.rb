@@ -1,4 +1,5 @@
 require_relative 'bike'
+require_relative 'vans'
 
 class DockingStation
     attr_reader :bikes
@@ -29,4 +30,5 @@ class DockingStation
     def empty?
         @bikes.empty? 
     end
+
 end
